@@ -15,10 +15,16 @@ function Navbar(props) {
                             <Link className="nav-link active" to={"/"} aria-current="page">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <li><Link className="nav-link" to={'/counter'}>counter</Link></li>
+                            <Link className="nav-link" to={'/counter'}>counter</Link>
                         </li>
                         <li className="nav-item">
-                            <li><Link className="nav-link" to={'/counter-redux'}>counter redux</Link></li>
+                            <Link className="nav-link" to={'/counter-redux'}>counter redux</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to={'/employees'}>Employees</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to={'/employees-redux'}>Employees Redux</Link>
                         </li>
                     </ul>
                 </div>
