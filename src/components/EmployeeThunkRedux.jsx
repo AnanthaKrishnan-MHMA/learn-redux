@@ -1,11 +1,12 @@
 import React from 'react';
-import {updateSelected} from '../redux/features/employees.feature';
+import {updateSelected} from '../redux/features/employees.thunk.feature';
 import { useSelector,useDispatch } from 'react-redux';
-function EmployeeRedux(props) {
+
+function EmployeeThunkRedux(props) {
     const dispatch = useDispatch();
 
     const empStore = useSelector((state)=>{
-        return state['employees']
+        return state['employeesThunk']
     })
 
     const updateSelectedEmp = (empId) => {
@@ -15,7 +16,7 @@ function EmployeeRedux(props) {
     return (
         <div>
             <div class="alert alert-warning" role="alert">
-               This employees component uses Redux.
+               This employees component uses Redux with in-built redux-thunk[fetches data from api using axios].
             </div>
             <div className="container">
                 <div className="row">
@@ -69,4 +70,4 @@ function EmployeeRedux(props) {
     );
 }
 
-export default EmployeeRedux;
+export default EmployeeThunkRedux;

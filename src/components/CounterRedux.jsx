@@ -19,6 +19,9 @@ function CounterRedux(props) {
     }
     return (
         <div>
+            <div class="alert alert-warning" role="alert">
+               This counter uses Redux.
+            </div>
             <p>{counterStore.count}</p>
             <button onClick={incrementClicked}>+</button>
             <button onClick={decrementClicked}>-</button>

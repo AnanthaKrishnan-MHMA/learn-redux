@@ -12,9 +12,6 @@ function Navbar(props) {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <Link className="nav-link active" to={"/"} aria-current="page">Home</Link>
-                        </li>
-                        <li className="nav-item">
                             <Link className="nav-link" to={'/counter'}>counter</Link>
                         </li>
                         <li className="nav-item">
@@ -25,6 +22,9 @@ function Navbar(props) {
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to={'/employees-redux'}>Employees Redux</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to={'/employees-thunk-redux'}>Employees Thunk Redux</Link>
                         </li>
                     </ul>
                 </div>

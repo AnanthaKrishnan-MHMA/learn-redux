@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Employee from "./components/Employee";
 import EmployeeRedux from "./components/EmployeeRedux";
+import EmployeeThunkRedux from "./components/EmployeeThunkRedux";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/counter" element={<Counter />}/>
           <Route path="/employees" element={<Employee />}/>
           <Route path="/employees-redux" element={<EmployeeRedux />}/>
+          <Route path="/employees-thunk-redux" element={<EmployeeThunkRedux />}/>
         </Routes>
       </BrowserRouter>
     </Provider>

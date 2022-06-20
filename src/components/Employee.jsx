@@ -39,6 +39,9 @@ function Employee(props) {
     }
     return (
         <div>
+            <div class="alert alert-warning" role="alert">
+               This employees component do not use Redux.
+            </div>
             <div className="container">
                 <div className="row">
                     <div className="col-12 text-primary text-center m-3">

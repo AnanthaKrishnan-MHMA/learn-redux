@@ -1,13 +1,25 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { EmployeeService } from '../../services/employeeService';
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
-let employees = EmployeeService.getAllEmployees();
+const apiUrl = "https://jsonplaceholder.typicode.com/users";
 
-const employeesSlice = createSlice({
-    name: 'employees',
-    initialState: {
-        employees
-    },
+
+let initialState = {
+    employees: [],
+    loading: true,
+    error: null,
+}
+export const fetchUsers = createAsyncThunk(
+    'users/fetchUserStatus',
+    async () => {
+        const response = await axios.get(apiUrl);
+        return response.data;
+    }
+)
+
+const employeesThunkSlice = createSlice({
+    name: 'employeesThunk',
+    initialState,
     reducers: {
         updateSelected: function (state, action) {
             let selectedEmployees = state.employees.map((emp, k) => {
@@ -24,10 +36,21 @@ const employeesSlice = createSlice({
             })
             state.employees = selectedEmployees;
         }
+    },
+    extraReducers: (builder) => {
+        builder.addCase(fetchUsers.fulfilled, (state, action) => {
+            state.loading = false;
+            state.employees= action.payload;
+        }).addCase(fetchUsers.pending, (state, action) => {
+            state.loading = true;
+        }).addCase(fetchUsers.rejected, (state, action) => {
+            state.loading = false;
+            state.error = "oops,something went wrong!"
+        })
     }
 });
-export const { updateSelected } = employeesSlice.actions;
-export default employeesSlice.reducer;
+export const { updateSelected } = employeesThunkSlice.actions;
+export default employeesThunkSlice.reducer;
 
 
 // useEffect(() => {
